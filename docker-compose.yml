@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: daily_horoscopes
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - DB_CONNECTION=pgsql
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_DATABASE=daily_horoscopes_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=dailyhoroscopes
+    volumes:
+      - .:/var/www
+    networks:
+      - daily_horoscopes
+    depends_on:
+      - db
+      
+  web:
+    image: nginx:latest
+    container_name: daily_horoscopes_web
+    ports:
+      - "8080:80"  # Ánh xạ cổng 8080 của máy chủ đến cổng 80 của container
+    volumes:
+      - .:/var/www
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf  # Mount đúng tệp tin cấu hình
+    depends_on:
+      - app
+    networks:
+      - daily_horoscopes
+
+  db:
+    image: postgres:13
+    container_name: daily_horoscopes_db
+    environment:
+      - POSTGRES_DB=daily_horoscopes_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=dailyhoroscopes
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - daily_horoscopes
+
+networks:
+  daily_horoscopes:
+
+volumes:
+  pgdata:

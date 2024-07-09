@@ -2,12 +2,13 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Web\HomepageController;
+use App\Http\Controllers\Web\LanguageController;
 use App\Http\Controllers\Web\PostController;
 use App\Http\Controllers\Web\TarotController;
 use Illuminate\Support\Facades\Route;
 
 /*------------------------------ Web Routes -------------------------------------------*/
-
+Route::post('set-locale',   [LanguageController::class, 'setLocale'])->name('setLocale');
 Route::get('/',             [HomepageController::class, 'index'])->name('homepage');
 Route::get('/posts',        [PostController::class, 'index'])->name('posts.list');
 Route::get('/posts/{slug}', [PostController::class, 'show'])->name('posts.show');

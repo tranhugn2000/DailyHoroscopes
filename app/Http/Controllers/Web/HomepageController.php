@@ -18,6 +18,9 @@ class HomepageController extends Controller
 
     public function index() {
         $post = $this->homepageService->getPostToday();
+        // dd($post['post_today']->translation);
+
         return view('clients.pages.homepage', compact('post'));
+
     }
 }

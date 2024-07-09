@@ -18,8 +18,8 @@ return new class extends Migration
             $table->text('name')->nullable();
             $table->text('content')->nullable();
             $table->text('love_focus');
-            $table->string('lucky_number');
-            $table->string('lucky_colour');
+            $table->text('lucky_number');
+            $table->text('lucky_colour');
             $table->timestamps();
         });
     }

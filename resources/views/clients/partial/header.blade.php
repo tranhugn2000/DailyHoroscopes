@@ -2,11 +2,8 @@
     <div class="flex items-center justify-between mb-10">
         <a href="/" class="flex items-center">
             <span href="/" class="mr-2">
-            <img class="max-h-24" id="logo-img" alt="logo" />
+                <img class="max-h-24" id="logo-img" alt="logo" />
             </span>
-            <!-- <p class="hidden font-body text-2xl font-bold text-primary dark:text-white lg:block">
-                Gnuh
-            </p> -->
         </a>
 
         <div class="flex items-center lg:hidden">
@@ -37,6 +34,16 @@
                 <li>
                     <i class="bx cursor-pointer text-3xl text-primary dark:text-white" @click="themeSwitch()" :class="isDarkMode ? 'bxs-sun' : 'bxs-moon'"></i>
                 </li>
+                <li>
+                    <form action="{{ route('setLocale') }}" method="POST">
+                        @csrf
+                        <select class="border-0 bg-none" name="locale" onchange="this.form.submit()">
+                            <option value="en" {{ App::getLocale() == 'en' ? 'selected' : '' }}>English</option>
+                            <option value="vi" {{ App::getLocale() == 'vi' ? 'selected' : '' }}>Vietnamese</option>
+                            
+                        </select>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
@@ -53,5 +60,6 @@
             </li>
 
         </ul>
+
     </div>
 </div>
