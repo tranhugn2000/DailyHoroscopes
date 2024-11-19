@@ -23,4 +23,6 @@ return [
     'capricorn'   => 'Ma Kết (22/12 - 21/1)',
     'aquarius'    => 'Bảo Bình (22/1 - 19/2)',
     'pisces'      => 'Song Ngư (20/2 - 20/3)',
+    'reset_card'  => 'Xào bài'
+
 ];

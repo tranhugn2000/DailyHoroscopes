@@ -23,5 +23,6 @@ return [
     'capricorn'   => 'Capricorn (December 22-January 21)',
     'aquarius'    => 'Aquarius (January 22-February 19)',
     'pisces'      => 'Pisces (February 20-March 20)',
-    'tarot_question' => 'Tarot Question'
+    'tarot_question' => 'Tarot Question',
+    'reset_card' => 'Shuffle'
 ];

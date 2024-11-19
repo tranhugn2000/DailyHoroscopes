@@ -34,12 +34,12 @@
                 <li>
                     <i class="bx cursor-pointer text-3xl text-primary dark:text-white" @click="themeSwitch()" :class="isDarkMode ? 'bxs-sun' : 'bxs-moon'"></i>
                 </li>
-                <li>
+                <li class="ml-4">
                     <form action="{{ route('setLocale') }}" method="POST">
                         @csrf
-                        <select class="border-0 bg-none" name="locale" onchange="this.form.submit()">
-                            <option value="en" {{ App::getLocale() == 'en' ? 'selected' : '' }}>English</option>
-                            <option value="vi" {{ App::getLocale() == 'vi' ? 'selected' : '' }}>Vietnamese</option>
+                        <select class="border-0 background-none focus:!outline-none focus:ring-0 relative z-30 block font-body text-lg font-medium text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary" name="locale" onchange="this.form.submit()">
+                            <option class="relative z-30 block px-5 font-body text-lg font-medium text-primary transition-colors group-hover:text-green dark:group-hover:text-secondary" value="en" {{ App::getLocale() == 'en' ? 'selected' : '' }}>EN</option>
+                            <option class="relative z-30 block px-5 font-body text-lg font-medium text-primary transition-colors group-hover:text-green dark:group-hover:text-secondary" value="vi" {{ App::getLocale() == 'vi' ? 'selected' : '' }}>VI</option>
                             
                         </select>
                     </form>

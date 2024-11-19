@@ -22,60 +22,13 @@ class TarotController extends Controller
         $cards = $this->tarotService->getDataCards();
         return view('clients.pages.tarot.index', compact('cards'));
     }
-    
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
-
+     
     public function getShuffledCards()
     {
         $cards = $this->tarotService->getDataCards();
         return response()->json($cards);
     }
+    
     public function readSelectedCards(Request $request)
     {
         $selected_cards =  $request->input('cards');
@@ -84,5 +37,6 @@ class TarotController extends Controller
         info($result);
         return response()->json($result);
     }
+
     
 }

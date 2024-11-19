@@ -26,10 +26,10 @@ services:
     image: nginx:latest
     container_name: daily_horoscopes_web
     ports:
-      - "8080:80"  # Ánh xạ cổng 8080 của máy chủ đến cổng 80 của container
+      - "8080:80"
     volumes:
       - .:/var/www
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf  # Mount đúng tệp tin cấu hình
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - app
     networks:
